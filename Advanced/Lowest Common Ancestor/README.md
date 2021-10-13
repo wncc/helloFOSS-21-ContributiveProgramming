@@ -7,13 +7,13 @@ Given any 2 employees, you have to find the lowest common senior(ancestor) of th
 
 ## Input Format
 
-The first line of the input contains an integer ```n```. The next ```n``` lines contains 2 integers ```x``` and ```y``` which represents an edge between these 2 vertices. Note that all vertices will have unique values. 
+The first line of the input contains an integer ```n```. The next ```n``` lines contains 2 integers ```x``` and ```y``` which represents a direct relation between the employees x and y (one of them is the other's senior). Note that all employees will have unique values. 
 
 The next line contains the number of queries ```q```. Each of the next ```q``` lines contains 3 integers ```r```, ```x``` and ```y```. 
 
 ## Output Format
 
-For each of the ```q``` queries print the LCA of the vertices ```x``` and ```y``` if the root was at vertex ```r```. 
+For each of the ```q``` queries print the LCA of the employee ```x``` and ```y``` if the founder(seniormost employee) was employee ```r```. 
 
 ## Relevant Constraints
 

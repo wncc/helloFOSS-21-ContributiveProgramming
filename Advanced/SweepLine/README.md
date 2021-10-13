@@ -10,8 +10,7 @@ Subarno wonders how many children would he be able to rescue?
 
 ### Input Format
 
-There would be ```T``` test cases.
-The first line of each test case, contains a single integer ```N```, denoting the number of streets.
+The first line contains a single integer ```N```, denoting the number of streets.
 The next ```N``` lines would each be describing one of these streets by a ```4-tuple``` of integers : ```x_1, y_1, x_2, y_2```, where the first two ascertain the starting point of the street, whereas the latter two ascertain the end point.
 
 ### Output Format
