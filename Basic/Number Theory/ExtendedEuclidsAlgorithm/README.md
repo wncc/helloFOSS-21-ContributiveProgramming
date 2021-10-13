@@ -22,9 +22,7 @@ Help Shreedhar calculate ```x```.
 
 ### Input Format
 
-The first line has a single integer ```T```, the number of test cases.
-
-Each test cases, start with a number ```N```, the number of duplets, the Officer would give Shreedhar.
+The input starts with a number ```N```, the number of duplets, the Officer would give Shreedhar.
 
 Each of the following lines have two integers ```a``` and ```b```, the duplets as descried above.
 
