@@ -14,7 +14,7 @@ You need to find the maximum amount of weightage in terms of marks which Shubh c
 
 The first line contains ```t```, the number of testcases. 
 
-The first line for each testcase contains ```T n``, the maximum allowed time and the number of chapters.
+The first line for each testcase contains ```T n```, the maximum allowed time and the number of chapters.
 
 The next 2 lines contains ```n``` space seperated integers. The first line contains the time taken to complete each chapter ```x[i]```  and the second line contains the weightage each chapter ```y[i]``` from 1 to n. 
 
