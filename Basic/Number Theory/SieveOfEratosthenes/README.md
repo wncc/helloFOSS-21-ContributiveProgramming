@@ -20,11 +20,8 @@ Now, With this key information can you build a remote control for such power pla
 
 ### Input Format
 
-The first line contains a single integer ```T``` denoting the number of test cases.
 
-```T``` test cases follow.
-
-The first line of each Test Case contains an integer ```N```, the number of Power Plants and ```M```, the number of commands the remote control receives.
+The first line of input contains an integer ```N```, the number of Power Plants and ```M```, the number of commands the remote control receives.
 
 It is followed by ```M``` lines each of the form :
 

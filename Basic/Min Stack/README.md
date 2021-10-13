@@ -4,7 +4,7 @@ The aim of this directory is to create an implementation of a class than can imp
 
 Your submission must be of the form ```github-username.cpp```, which will import the header file ```MinStack.h```. You have to define the functions declared in the header file in your .cpp file. 
 
-Make sure that your main function handles input-output correctly, and that your implementation gives the correct output on ```input.txt```. The input format and problem description is as follows:
+Make sure that your main function handles input-output correctly, and that your implementation gives the correct output on sample input. The input format and problem description is as follows:
 
 ## Problem Statement
 
