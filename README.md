@@ -20,22 +20,22 @@ The following is the list of topics. Please refer to the READMEs in the individu
 
 ### Basic
 
-1. Binary Search
-2. Sorting
-3. Minimum Stack
-4. Dynamic Programming
+1. [Binary Search](https://github.com/wncc/helloFOSS-21-ContributiveProgramming/tree/main/Basic/Binary%20Search)
+2. [Sorting](https://github.com/wncc/helloFOSS-21-ContributiveProgramming/tree/main/Basic/Sorting)
+3. [Minimum Stack](https://github.com/wncc/helloFOSS-21-ContributiveProgramming/tree/main/Basic/Min%20Stack)
+4. [Dynamic Programming](https://github.com/wncc/helloFOSS-21-ContributiveProgramming/tree/main/Basic/Dynamic%20Programming)
 5. Number Theory :
-   - Sieve of Eratosthenes (in linear time)
-   - Extended Euclid's Algorithm
+   - [Sieve of Eratosthenes (in linear time)](https://github.com/wncc/helloFOSS-21-ContributiveProgramming/tree/main/Basic/Number%20Theory/SieveOfEratosthenes)
+   - [Extended Euclid's Algorithm](https://github.com/wncc/helloFOSS-21-ContributiveProgramming/tree/main/Basic/Number%20Theory/ExtendedEuclidsAlgorithm)
 
 ### Advanced
 
-1. Sweep Line Algorithms
-2. Disjoint Set Union
-3. Lowest Common Ancestor
-4. Knuth-Morris-Pratt Algorithm for Pattern Matching
-5. Compression using Huffman Encoding
-6. AVL Trees
+1. [Sweep Line Algorithms](https://github.com/wncc/helloFOSS-21-ContributiveProgramming/tree/main/Advanced/SweepLine)
+2. [Disjoint Set Union](https://github.com/wncc/helloFOSS-21-ContributiveProgramming/tree/main/Advanced/Disjoint%20Set%20Union)
+3. [Lowest Common Ancestor](https://github.com/wncc/helloFOSS-21-ContributiveProgramming/tree/main/Advanced/Lowest%20Common%20Ancestor)
+4. [Knuth-Morris-Pratt Algorithm for Pattern Matching](https://github.com/wncc/helloFOSS-21-ContributiveProgramming/tree/main/Advanced/KMP%20Algorithm)
+5. [Compression using Huffman Encoding](https://github.com/wncc/helloFOSS-21-ContributiveProgramming/tree/main/Advanced/Compression)
+6. [AVL Trees](https://github.com/wncc/helloFOSS-21-ContributiveProgramming/tree/main/Advanced/AVL%20Rotation)
 
 Need a challenge? Try implementing Deletion in B-Trees!
 
