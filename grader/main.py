@@ -2,11 +2,13 @@ import subprocess
 import os
 import argparse
 import re
+from shutil import copyfile
 
 
 def compile(code):
     try:
-        proc = subprocess.run(['g++', '-w', f'{code}'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=5)
+        proc = subprocess.run(['g++', '-w', f'{code}', '-o', 'myexec'], stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                              timeout=5)
     except subprocess.TimeoutExpired:
         print("compile time exceeded")
         exit(1)
@@ -15,15 +17,17 @@ def compile(code):
     assert output == '', "compilation error"
     assert errors == '', "compilation error"
 
-def run_compiled(input_file):
-    input_file = open(f'{input_file}')
-    out_file = open(f'out.out','w+')
+
+def run_compiled(input_file, tle):
+    copyfile(input_file, 'input.txt')
+    out_file = open(f'out.out', 'w+')
     try:
-        subprocess.run(['./a.out'], stdout=out_file , stderr=out_file ,stdin=input_file , timeout=tle)
-    except subprocess.TimeoutExpired as err:
+        subprocess.run(['./myexec'], stdout=out_file, stderr=out_file, timeout=tle)
+    except subprocess.TimeoutExpired:
         print("Time limit Exceeded")
         exit(1)
     out_file.close()
+
 
 def diff_checker(output_file):
     out_file = open(f'out.out')
@@ -34,18 +38,19 @@ def diff_checker(output_file):
     expected_output = re.sub(r'\s+', ' ', expected_output).strip()
     # considers just spaces between everything while comparing
 
-    if test_output==expected_output:
+    if test_output == expected_output:
         print("All test passed")
     else:
         print("failed")
     try:
+        os.remove('input.txt')
         os.remove('out.out')
-        os.remove('a.out')
+        os.remove('myexec')
     except:
         pass
 
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='autograder')
     parser.add_argument('code', type=str, help='path to .cpp file')
     parser.add_argument('i', type=str, help='path to input .txt file')
@@ -57,9 +62,10 @@ if __name__ == "__main__":
     output_file = args.o
     tle = args.tle
     assert os.path.splitext(code)[1] == '.cpp', 'not a .cpp file'
+    assert os.path.isfile(code), 'invalid code path/directory'
     assert os.path.isfile(input_file), 'invalid input path/directory'
     assert os.path.isfile(output_file), 'invalid output path/directory'
 
     compile(code)
-    run_compiled(input_file)
+    run_compiled(input_file, tle)
     diff_checker(output_file)
