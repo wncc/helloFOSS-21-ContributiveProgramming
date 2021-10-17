@@ -3,14 +3,11 @@
 using namespace std;
 
 int min_num (int n, int k) {
-    if (k < 2) {
+    if (k < 1) {
         return -1;
     }
     if (n == 0) {
         return 0;
-    }
-    if (n == 1) {
-        return -1;
     }
     if (n < k + 1) {
         return 1;
@@ -30,7 +27,7 @@ int min_num (int n, int k) {
         }
         i = i - 1;
     }
-    if (min < k){
+    if (min < k + 1){
         return min;
     }
     else{
@@ -50,7 +47,7 @@ int main (){
     }
     i = 0;
     while (i < t) {
-        cout << min_num (N[i], K[i]) << "\n";
+        cout << min_num (N[i] - 1, K[i] - 1) << "\n";
         i = i + 1;
     }
     return 0;
