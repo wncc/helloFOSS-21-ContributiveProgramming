@@ -39,20 +39,7 @@ int main()
         int l = curr.length();
         int i = 0, j = 0;
         vector<int> occurances;
-        // for (i=0;i<l;i++)
-        // {
-        //     while (j>0 and curr[i]!=word[j])
-        //     {
-        //         j = lps[j-1];
-        //     }
-        //     if (curr[i]==word[j]) j++;
-        //     if (j==word.length())
-        //     {
-        //         occurances.push_back(i-word.length()+1);
-        //         j = lps[n-1];
-        //         i--;
-        //     }
-        // }
+
         while (i<l)
         {
             bool foundhere = false;
