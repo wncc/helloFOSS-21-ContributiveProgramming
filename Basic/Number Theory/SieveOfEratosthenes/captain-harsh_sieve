@@ -1,0 +1,119 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include<bits/stdc++.h>
+using namespace std;
+const long long MAX_SIZE = 1000001;
+
+
+
+int gcdExtended(int a, int b, int *x, int *y)
+{
+
+    if (a == 0)
+    {
+        *x = 0;
+        *y = 1;
+        return b;
+    }
+
+    int x1, y1;
+    int gcd = gcdExtended(b%a, a, &x1, &y1);
+
+    *x = y1 - (b/a) * x1;
+    *y = x1;
+
+    return gcd;
+}
+
+vector<long long >isprime(MAX_SIZE , true);
+vector<long long >prime;
+vector<long long >SPF(MAX_SIZE);
+
+
+void manipulated_seive(int N)
+{
+
+	isprime[0] = isprime[1] = false ;
+
+
+	for (long long int i=2; i<N ; i++)
+	{
+		if (isprime[i])
+		{
+
+			prime.push_back(i);
+			SPF[i] = i;
+		}
+
+
+		for (long long int j=0;
+			j < (int)prime.size() &&
+			i*prime[j] < N && prime[j] <= SPF[i];
+			j++)
+		{
+			isprime[i*prime[j]]=false;
+
+
+			SPF[i*prime[j]] = prime[j] ;
+		}
+	}
+}
+
+
+int main()
+{
+	long long int n,m;
+	cin>>n>>m;
+	vector<long long >on;
+
+	manipulated_seive(n);
+	for(int i=0;i<m;i++){
+        string sym;
+        long long int num;
+        bool t=true;
+        cin>>sym>>num;
+        if(sym=="+"){
+            if(std::find(on.begin(), on.end(), num) != on.end()){
+                cout<<"AlreadyOn\n";
+            }
+
+            else
+                if(find(prime.begin(), prime.end(), num) != prime.end()){
+                    for(int j=0;j<on.size();j++){
+                        if(on[j]%num==0){
+                            cout<<"Conflict\n";
+                            continue;
+                        }
+                    }
+                    cout<<"Success\n";
+                    on.push_back(num);
+
+                 }
+                 else{
+
+                 for(int j=0;j<on.size();j++){
+                        int x,y;
+                        if(gcdExtended(num, on[j], &x, &y)!=1){
+                            cout<<"Conflict\n";
+                            t=false;
+                            break;
+                        }
+
+                 }
+                 if(t){
+                    cout<<"Success\n";
+                    on.push_back(num);
+                 }
+                 continue;}
+
+
+	  }
+	  else
+        {cout<<"Success\n";
+        on.erase(remove(on.begin(), on.end(), num), on.end());}
+
+
+	}
+	return 0;
+}
