@@ -1,0 +1,120 @@
+#include <iostream>
+using namespace std;
+
+void swap(double* a, double* b)
+{
+	int t = *a;
+	*a = *b;
+	*b = t;
+}
+
+
+double partition (double arr[], double ar[], double wt[], int low, int high)
+{
+	int pivot = arr[high];
+	int i = (low - 1);
+
+	for (int j = low; j <= high - 1; j++)
+	{
+
+		if (arr[j] < pivot)
+		{
+			i++; // increment index of smaller element
+			swap(&arr[i], &arr[j]);
+			swap(&ar[i], &ar[j]);
+			swap(&wt[i], &wt[j]);
+		}
+	}
+	swap(&arr[i + 1], &arr[high]);
+	swap(&ar[i + 1], &ar[high]);
+	swap(&wt[i + 1], &wt[high]);
+	return (i + 1);
+}
+
+void quickSort(double arr[], double ar[], double wt[], int low, int high)
+{
+	if (low < high)
+	{
+
+		double pi = partition(arr,ar,wt, low, high);
+
+
+		quickSort(arr,ar,wt, low, pi - 1);
+		quickSort(arr, ar,wt, pi + 1, high);
+	}
+}
+
+int main()
+{
+    int t;
+    cin>>t;
+    for(int i=0;i<t;i++){
+        int T,N;
+        cin>>T>>N;
+        double wt[N],time[N];
+        double ch[N];
+        for(int j=0;j<N;j++){
+            cin>>time[j];
+        }
+        for(int j=0;j<N;j++){
+            cin>>wt[j];
+            ch[j]=wt[j]/time[j];
+        }
+
+        quickSort(ch,time,wt, 0, N - 1);
+
+
+        int sum=0,h=N-1,w=0;
+        while(true){
+
+            if(sum==T|| h<0){
+                    break;
+                }
+            sum=sum+time[h];
+            w=w+wt[h];
+
+
+
+                if(sum> T){
+                    sum=sum-time[h];
+                    w=w-wt[h];
+                    h--;
+                }
+
+                else
+                  h--;
+        }
+
+        quickSort(wt,time,ch, 0, N - 1);
+        sum=0;h=N-1;int m=0;
+        while(true){
+
+            if(sum==T|| h<0){
+                    break;
+                }
+            sum=sum+time[h];
+            m=m+wt[h];
+
+
+
+                if(sum> T){
+                    sum=sum-time[h];
+                    m=m-wt[h];
+                    h--;
+                }
+
+                else
+                  h--;
+        }
+        w=max(w,m);
+        cout<<w<<endl;
+
+    }
+
+
+
+
+
+
+return 0;
+}
