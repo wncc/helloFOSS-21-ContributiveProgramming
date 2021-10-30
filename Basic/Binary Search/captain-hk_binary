@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    for(int i=0;i<t;i++){
+      int sum,k,total=1,ans=0;
+      cin>>sum>>k;
+      int m=((k*(k-1)/2)+1);
+      int arr[k-1];
+      for(int j=0;j<k-1;j++){
+        arr[j]=j+2;
+      }
+      int h=k-2;
+
+        if ((sum<=k) && (sum>=2)){
+            cout<<"1\n";
+            continue;
+        }
+        else
+         if (sum<2||sum>m){
+            cout<<"-1\n";
+            continue;
+         }
+        else
+          while(true){
+            if(h<0){cout<<"-1\n";break;}
+            if((sum+1-total<=k) & (sum+1-total>=2)){
+                cout<<ans+1<<"\n";
+                break;
+            }
+            else
+                total=total+arr[h]-1;
+                ans++;
+                if(total>sum){
+                    total=total-arr[h]+1;
+                    ans--;
+                    h--;
+                }
+                else
+                  if(total==sum){cout<<ans<<"\n";}
+          }
+
+}
+return 0;
+}
