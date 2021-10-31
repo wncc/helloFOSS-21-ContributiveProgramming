@@ -1,0 +1,85 @@
+#include"MinStack.h"
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+MinStack::MinStack(){
+arr=new int[MAXSIZE];
+size=0;
+}
+
+void MinStack::push(int val){
+    if(size>=MAXSIZE){
+        cout<<"FULL\n";
+    }
+    else{
+      arr[size]=val;
+      size++;
+
+    }
+}
+
+int MinStack::pop(){
+    if(size==0){
+        cout<<"EMPTY\n";
+    }
+    else{
+        cout<<arr[size-1];
+        size--;
+    }
+ return arr[size-1];
+}
+int MinStack::top(){
+    if(size==0){
+        cout<<"EMPTY\n";
+    }
+    else{
+        cout<<arr[size-1];
+    }
+   return arr[size-1];
+}
+int MinStack::getMin(){
+    if(size==0){
+        cout<<"EMPTY\n";
+    }
+    else{
+        cout<< *min_element(arr, arr + size);
+    }
+    return *min_element(arr, arr + size);
+
+
+}
+
+int main(){
+int t;
+cin>>t;
+for(int i=0;i<t;i++){
+    MinStack *M= new MinStack();
+    int q;
+    cin>>q;
+    for(int j=0;j<q;j++){
+        int a;
+        cin>>a;
+        if(a==1){
+            int v;
+            cin>>v;
+            M->push(v);
+        }
+        else
+            if(a==2){
+            M->pop();
+            }
+            else
+                if(a==3){
+                    M->top();
+                }
+                else
+                    if(a==4){
+                    M->getMin();
+                }
+
+    }
+}
+return 0;
+}
