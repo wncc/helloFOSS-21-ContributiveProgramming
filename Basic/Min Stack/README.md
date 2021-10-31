@@ -46,6 +46,7 @@ The next ```q``` lines will contain queries of the following 3 types:
 1
 5
 1
+1
 3
 EMPTY
 ```
